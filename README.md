@@ -1,3 +1,5 @@
+![Test Image 1](https://github.com/joeypce/fyp_chatbot/blob/master/chatbot_ui.png)
+
 ## Contextual Chatbot
 A contextual chatbot based on data from https://va.ecitizen.gov.sg/cfp/customerpages/msf/bb/explorefaq.aspx is developed. The architecture of the chatbot adopts the Django framework. The natural language processing component make use of Google's Dialogflow. The aim of this project is to humanize chatbot through certain actions like small talks and improve accuracy of existing chatbot.
 
