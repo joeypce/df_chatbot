@@ -18,8 +18,6 @@ beta_filename = os.path.join(dirname, 'report-purpose-meceyp-e52d50746452.json')
 charlie_filename = os.path.join(dirname, 'nlumodule-charlie-nrayfl-e494247ef306.json')
 
 def detectintent_alpha(userinput):
-    # os.environ[
-    #     "GOOGLE_APPLICATION_CREDENTIALS"] = r"C:\Users\Joey\PycharmProjects\SimpleUI\data\a\modelb-37edc-8bcbf482cbdf.json"
     os.environ[
         "GOOGLE_APPLICATION_CREDENTIALS"] = alpha_filename
     DIALOGFLOW_PROJECT_ID = 'modelb-37edc'
@@ -44,8 +42,6 @@ def detectintent_alpha(userinput):
     return output
 
 def detectintent_beta(userinput):
-    # os.environ[
-    #     "GOOGLE_APPLICATION_CREDENTIALS"] = r"C:\Users\Joey\PycharmProjects\SimpleUI\data\report-purpose-meceyp-e52d50746452.json"
     os.environ[
         "GOOGLE_APPLICATION_CREDENTIALS"] = beta_filename
     DIALOGFLOW_PROJECT_ID = 'report-purpose-meceyp'
@@ -186,8 +182,6 @@ def detectintent_beta(userinput):
     return output
 
 def detectintent_charlie(userinput):
-    # os.environ[
-    #     "GOOGLE_APPLICATION_CREDENTIALS"] = r"C:\Users\Joey\PycharmProjects\SimpleUI\data\nlumodule-charlie-nrayfl-e494247ef306.json"
     os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = charlie_filename
     DIALOGFLOW_PROJECT_ID = 'nlumodule-charlie-nrayfl'
     session_client = dialogflow.SessionsClient()
