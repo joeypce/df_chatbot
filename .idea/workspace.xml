@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="c3f96c35-35e0-4053-8947-96f4da4e5409" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="FYP_UI" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/fyp_chatbot" />
+  </component>
+  <component name="ProjectId" id="1QbgO2v6PZRNQKtK4XcVhcoTYff" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/library" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="PyConsoleOptionsProvider">
+    <option name="myPythonConsoleState">
+      <console-settings module-name="FYP_UI" is-module-sdk="true">
+        <option name="myUseModuleSdk" value="true" />
+        <option name="myModuleName" value="FYP_UI" />
+      </console-settings>
+    </option>
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Joey\Desktop\PycharmProjects\FYP_UI\library" />
+      <recent name="C:\Users\Joey\PycharmProjects\FYP_UI\data" />
+      <recent name="C:\Users\Joey\PycharmProjects\FYP_UI\static\img" />
+      <recent name="C:\Users\Joey\PycharmProjects\FYP_UI\static" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Joey\Desktop\PycharmProjects\FYP_UI" />
+      <recent name="C:\Users\Joey\Desktop\PycharmProjects\FYP_UI\library" />
+      <recent name="C:\Users\Joey\PycharmProjects\FYP_UI\static\img" />
+      <recent name="C:\Users\Joey\PycharmProjects\FYP_UI\static\bootstrap" />
+      <recent name="C:\Users\Joey\PycharmProjects\FYP_UI\static" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.call_askjamie">
+    <configuration name="chatbot.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/FYP_UI/templates/chatbot.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="test.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/FYP_UI/templates/test.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="call_askjamie" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="FYP_UI" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/library" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/library/call_askjamie.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="df_testperformance" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="FYP_UI" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/library" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/library/df_testperformance.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="dialogflow_vs_askjamie" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="FYP_UI" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/library" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/library/dialogflow_vs_askjamie.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="FYP_UI" type="Python.DjangoServer" factoryName="Django server">
+      <module name="FYP_UI" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.dialogflow_vs_askjamie" />
+        <item itemvalue="Python.call_askjamie" />
+        <item itemvalue="Python.df_testperformance" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c3f96c35-35e0-4053-8947-96f4da4e5409" name="Default Changelist" comment="" />
+      <created>1568044673162</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1568044673162</updated>
+      <workItem from="1568044674597" duration="3841000" />
+      <workItem from="1568051713921" duration="4891000" />
+      <workItem from="1568196929371" duration="4789000" />
+      <workItem from="1568456608288" duration="19472000" />
+      <workItem from="1568541880166" duration="18044000" />
+      <workItem from="1568618030770" duration="419000" />
+      <workItem from="1568618714435" duration="617000" />
+      <workItem from="1568708635351" duration="621000" />
+      <workItem from="1568806312969" duration="1300000" />
+      <workItem from="1569059888611" duration="1450000" />
+      <workItem from="1569089111783" duration="943000" />
+      <workItem from="1569231714803" duration="613000" />
+      <workItem from="1569484694638" duration="8661000" />
+      <workItem from="1569568205203" duration="616000" />
+      <workItem from="1569656602514" duration="501000" />
+      <workItem from="1569752412301" duration="9569000" />
+      <workItem from="1569776180818" duration="4901000" />
+      <workItem from="1569783589670" duration="5546000" />
+      <workItem from="1569831152280" duration="1209000" />
+      <workItem from="1569847870656" duration="1038000" />
+      <workItem from="1569932154847" duration="382000" />
+      <workItem from="1569935605614" duration="70000" />
+      <workItem from="1570180231195" duration="2768000" />
+      <workItem from="1570195814933" duration="14000" />
+      <workItem from="1570196325516" duration="6361000" />
+      <workItem from="1570352090024" duration="6647000" />
+      <workItem from="1570598039847" duration="2874000" />
+      <workItem from="1570601292581" duration="970000" />
+      <workItem from="1570724012098" duration="753000" />
+      <workItem from="1570987458291" duration="2825000" />
+      <workItem from="1571004148610" duration="934000" />
+      <workItem from="1571041173089" duration="4374000" />
+      <workItem from="1571145752592" duration="4472000" />
+      <workItem from="1571200563343" duration="1839000" />
+      <workItem from="1571416189248" duration="2929000" />
+      <workItem from="1571478251747" duration="7937000" />
+      <workItem from="1571486296147" duration="14466000" />
+      <workItem from="1572802899242" duration="13000" />
+      <workItem from="1575027017996" duration="204000" />
+      <workItem from="1575027253377" duration="162000" />
+      <workItem from="1575028039597" duration="492000" />
+      <workItem from="1575028559944" duration="102000" />
+      <workItem from="1575045701160" duration="69000" />
+      <workItem from="1575045866357" duration="159000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="719" y="329" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1578948535477">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="719" y="329" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1578948535477" />
+    <state x="740" y="277" key="FileChooserDialogImpl" timestamp="1578933561367">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="277" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1578933561367" />
+    <state x="463" y="164" key="SettingsEditor" timestamp="1578946202479">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="463" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1578946202479" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/library/df_response_lib.py</url>
+          <line>46</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/db_query.py</url>
+          <line>52</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

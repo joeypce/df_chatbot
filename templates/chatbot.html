@@ -1,0 +1,748 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MSF Chatbot</title>
+    <style>
+        /* The Modal (background) */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0, 0, 0); /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+            -webkit-animation-name: fadeIn; /* Fade in the background */
+            -webkit-animation-duration: 0.4s;
+            animation-name: fadeIn;
+            animation-duration: 0.4s
+        }
+
+        /* Modal Content */
+        .modal-content {
+            position: fixed;
+            bottom: 0;
+            background-color: #fefefe;
+            width: 100%;
+            -webkit-animation-name: slideIn;
+            -webkit-animation-duration: 0.4s;
+            animation-name: slideIn;
+            animation-duration: 0.4s
+        }
+
+        /* The Close Button */
+        .close {
+            color: white;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .modal-header {
+            padding: 2px 16px;
+            background-color: #5cb85c;
+            color: white;
+        }
+
+        .modal-body {
+            padding: 2px 16px;
+        }
+
+        .modal-footer {
+            padding: 2px 16px;
+            background-color: #5cb85c;
+            color: white;
+        }
+
+        /* Add Animation */
+        @-webkit-keyframes slideIn {
+            from {
+                bottom: -300px;
+                opacity: 0
+            }
+            to {
+                bottom: 0;
+                opacity: 1
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                bottom: -300px;
+                opacity: 0
+            }
+            to {
+                bottom: 0;
+                opacity: 1
+            }
+        }
+
+        @-webkit-keyframes fadeIn {
+            from {
+                opacity: 0
+            }
+            to {
+                opacity: 1
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0
+            }
+            to {
+                opacity: 1
+            }
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #edeff2;
+            font-family: "Calibri", "Roboto", sans-serif;
+        }
+
+        .chat_window {
+            position: absolute;
+            width: calc(100% - 20px);
+            max-width: 800px;
+            height: 600px;
+            border-radius: 10px;
+            background-color: #fff;
+            left: 50%;
+            top: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            background-color: #f8f8f8;
+            overflow: hidden;
+        }
+
+        .top_menu {
+            background-color: #fff;
+            width: 100%;
+            padding: 20px 0 15px;
+            box-shadow: 0 1px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .top_menu .buttons {
+            margin: 3px 0 0 20px;
+            position: absolute;
+        }
+
+        .top_menu .buttons .button {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 10px;
+            position: relative;
+        }
+
+        .top_menu .buttons .button.close {
+            background-color: #f5886e;
+        }
+
+        .top_menu .buttons .button.minimize {
+            background-color: #fdbf68;
+        }
+
+        .top_menu .buttons .button.maximize {
+            background-color: #a3d063;
+        }
+
+        .top_menu .title {
+            text-align: center;
+            color: #bcbdc0;
+            font-size: 20px;
+        }
+
+        .messages {
+            position: relative;
+            list-style: none;
+            padding: 20px 10px 0 10px;
+            margin: 0;
+            height: 467px;
+            overflow: scroll;
+        }
+
+        .messages .message {
+            clear: both;
+            overflow: hidden;
+            margin-bottom: 20px;
+            transition: all 0.5s linear;
+            opacity: 0;
+        }
+
+        .messages .message.left .avatar {
+            background-color: #f5886e;
+            float: left;
+        }
+
+        .messages .message.left .text_wrapper {
+            background-color: #ffe6cb;
+            margin-left: 20px;
+        }
+
+        .messages .message.left .text_wrapper::after, .messages .message.left .text_wrapper::before {
+            right: 100%;
+            border-right-color: #ffe6cb;
+        }
+
+        .messages .message.left .text {
+            color: #c48843;
+        }
+
+        .messages .message.right .avatar {
+            background-color: #fdbf68;
+            float: right;
+        }
+
+        .messages .message.right .text_wrapper {
+            background-color: #c7eafc;
+            margin-right: 20px;
+            float: right;
+        }
+
+        .messages .message.right .text_wrapper::after, .messages .message.right .text_wrapper::before {
+            left: 100%;
+            border-left-color: #c7eafc;
+        }
+
+        .messages .message.right .text {
+            color: #45829b;
+        }
+
+        .messages .message.appeared {
+            opacity: 1;
+        }
+
+        .messages .message .avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .messages .message .text_wrapper {
+            display: inline-block;
+            padding: 20px;
+            border-radius: 6px;
+            width: calc(100% - 85px);
+            min-width: 100px;
+            position: relative;
+        }
+
+        .messages .message .text_wrapper::after, .messages .message .text_wrapper:before {
+            top: 18px;
+            border: solid transparent;
+            content: " ";
+            height: 0;
+            width: 0;
+            position: absolute;
+            pointer-events: none;
+        }
+
+        .messages .message .text_wrapper::after {
+            border-width: 13px;
+            margin-top: 0px;
+        }
+
+        .messages .message .text_wrapper::before {
+            border-width: 15px;
+            margin-top: -2px;
+        }
+
+        .messages .message .text_wrapper .text {
+            font-size: 18px;
+            font-weight: 300;
+        }
+
+        .bottom_wrapper {
+            position: relative;
+            width: 100%;
+            background-color: #fff;
+            padding: 20px 20px;
+            position: absolute;
+            bottom: 0;
+        }
+
+        .bottom_wrapper .message_input_wrapper {
+            display: inline-block;
+            height: 50px;
+            border-radius: 25px;
+            border: 1px solid #bcbdc0;
+            width: calc(100% - 160px);
+            position: relative;
+            padding: 0 20px;
+        }
+
+        .bottom_wrapper .message_input_wrapper .message_input {
+            border: none;
+            height: 100%;
+            box-sizing: border-box;
+            width: calc(100% - 40px);
+            position: absolute;
+            outline-width: 0;
+            color: gray;
+        }
+
+        .bottom_wrapper .send_message {
+            width: 90px;
+            height: 50px;
+            display: inline-block;
+            border-radius: 50px;
+            background-color: #a3d063;
+            border: 2px solid #a3d063;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.2s linear;
+            text-align: center;
+            float: right;
+
+        }
+
+        .bottom_wrapper .speech_message {
+            width: 48px;
+            height: 50px;
+            display: inline-block;
+        {#border-radius: 100%;#}{#border: 2px solid black;#} color: #fff;
+            cursor: pointer;
+            transition: all 0.2s linear;
+            text-align: center;
+            float: right;
+        }
+
+        .bottom_wrapper .send_message:hover {
+            color: #a3d063;
+            background-color: #fff;
+        }
+
+        .bottom_wrapper .send_message .text {
+            font-size: 18px;
+            font-weight: 300;
+            display: inline-block;
+            line-height: 48px;
+        }
+
+        .message_template {
+            display: none;
+        }
+
+    </style>
+    <script type="text/javascript" src="{% static "jQuery/jquery.min.js" %}"></script>
+    <script>
+        function myFunction(element) {
+            var x = element.innerText;
+            document.getElementsByName('message_input')[0].value = x;
+            $(".send_message").click();
+        }
+    </script>
+</head>
+<body>
+{#<form method="post">#}
+{#    {% csrf_token %}#}
+<div class="chat_window">
+    <div class="top_menu">
+        <div class="buttons">
+            <div class="button close"></div>
+            <div class="button minimize"></div>
+            <div class="button maximize"></div>
+        </div>
+        <div class="title">Chat</div>
+    </div>
+    <ul class="messages"></ul>
+    <div class="bottom_wrapper clearfix">
+        <div class="message_input_wrapper"><input id="note-textarea" name="message_input" class="message_input"/></div>
+        <div class="speech_message" style="top-padding: 50px;">
+            <div class="icon"></div>
+            <input id="start-record-btn" type="image" src="{% static "img/micpause.png" %}" alt="Start" width="48"
+                   height="48" style="opacity: 0.5">
+            <input id="pause-record-btn" type="image" src="{% static "img/mic.png" %}" alt="Pause" width="48"
+                   height="48" style="opacity: 0.5">
+            {#            <p id="recording-instructions">Press the <strong>Start Recognition</strong> button and allow access.</p>#}
+        </div>
+        <div class="send_message">
+            <div class="icon"></div>
+            <div class="text">Send</div>
+        </div>
+    </div>
+</div>
+
+<!-- Trigger/Open The Modal -->
+<button id="myBtn" class="btn btn-dark">MSF Response</button>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>Response from Ask Jamie</h2>
+        </div>
+        <div class="modal-body">
+            <p><span id="msf" style="display: block; overflow-y:scroll;"></span></p>
+        </div>
+    </div>
+
+</div>
+
+<div class="message_template">
+    <li class="message">
+        <div class="avatar"></div>
+        <div class="text_wrapper">
+            <div class="text"></div>
+        </div>
+    </li>
+</div>
+</body>
+{#</form>#}
+<script>
+    var token = '{{csrf_token}}';
+    document.getElementById("myBtn").hidden = true;
+
+
+    (function () {
+        var Message;
+        Message = function (arg) {
+            this.text = arg.text, this.message_side = arg.message_side;
+            this.draw = function (_this) {
+                return function () {
+                    var $message;
+                    $message = $($('.message_template').clone().html());
+                    $message.addClass(_this.message_side).find('.text').html(_this.text);
+                    $('.messages').append($message);
+                    return setTimeout(function () {
+                        return $message.addClass('appeared');
+                    }, 0);
+                };
+            }(this);
+            return this;
+        };
+
+
+        $(function () {
+            var getMessageText, message_side, sendMessage;
+            message_side = 'right';
+            getMessageText = function () {
+                var $message_input;
+                $message_input = $('.message_input');
+                return $message_input.val();
+            };
+            sendMessage = function (text, message_side) {
+                var $messages, message;
+                if (typeof text == "string") {
+                    if (text.trim() === '') {
+                        return;
+                    }
+                }
+
+                $('.message_input').val('');
+                $messages = $('.messages');
+                message = new Message({
+                    text: text,
+                    message_side: message_side
+                });
+                message.draw();
+                return $messages.animate({scrollTop: $messages.prop('scrollHeight')}, 300);
+            };
+
+            $('.send_message').click(function (e) {
+                msfbtninput = $('.message_input').val()
+                $.ajax({
+                    headers: {"X-CSRFToken": token},
+                    url: '{% url 'chatbot_view' %}',
+                    method: 'POST',
+                    data: {"user_input": getMessageText()},
+                    dataType: 'text',
+                    success: function (response) {
+                        output = JSON.parse(response);
+                        res = output["response"];
+                        sendMessage(res, 'left');
+
+                        {# MSF RESPONSE#}
+                        $('#msf').html(output["msfresponse"]);
+                        document.getElementById("myBtn").hidden = false;
+                        document.getElementById("myBtn").innerHTML = "MSF Response for '" + msfbtninput + "'";
+                    }
+                })
+                return sendMessage(getMessageText(), 'right');
+            });
+
+            $('.message_input').keyup(function (e) {
+                msfbtninput = $('.message_input').val()
+                if (e.which === 13) {
+                    $.ajax({
+                        headers: {"X-CSRFToken": token},
+                        url: '{% url 'chatbot_view' %}',
+                        method: 'POST',
+                        data: {"user_input": getMessageText()},
+                        dataType: 'text',
+                        success: function (response) {
+                            output = JSON.parse(response);
+                            res = output["response"];
+                            sendMessage(res, 'left');
+
+                            {# MSF RESPONSE #}
+                            $('#msf').html(output["msfresponse"]);
+                            document.getElementById("myBtn").hidden = false;
+                            document.getElementById("myBtn").innerHTML = "MSF Response for '" + msfbtninput + "'";
+                        }
+                    })
+                    return sendMessage(getMessageText(), 'right');
+                }
+            });
+            sendMessage('Welcome to Baby Bonus FAQ Chatbot', 'left');
+        });
+    }.call(this));
+
+    {#    speech to text recognition    #}
+    try {
+        var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        var recognition = new SpeechRecognition();
+    } catch (e) {
+        console.error(e);
+        $('.no-browser-support').show();
+        $('.app').hide();
+    }
+
+
+    var noteTextarea = $('#note-textarea');
+    var instructions = $('#recording-instructions');
+    var notesList = $('ul#notes');
+
+    var noteContent = '';
+
+    // Get all notes from previous sessions and display them.
+    var notes = getAllNotes();
+    renderNotes(notes);
+
+
+    /*-----------------------------
+          Voice Recognition
+    ------------------------------*/
+
+    // If false, the recording will stop after a few seconds of silence.
+    // When true, the silence period is longer (about 15 seconds),
+    // allowing us to keep recording even when the user pauses.
+    recognition.continuous = true;
+
+    // This block is called every time the Speech APi captures a line.
+    recognition.onresult = function (event) {
+
+        // event is a SpeechRecognitionEvent object.
+        // It holds all the lines we have captured so far.
+        // We only need the current one.
+        var current = event.resultIndex;
+
+        // Get a transcript of what was said.
+        var transcript = event.results[current][0].transcript;
+
+        // Add the current transcript to the contents of our Note.
+        // There is a weird bug on mobile, where everything is repeated twice.
+        // There is no official solution so far so we have to handle an edge case.
+        var mobileRepeatBug = (current == 1 && transcript == event.results[0][0].transcript);
+
+        if (!mobileRepeatBug) {
+            noteContent = transcript;
+            {#alert(noteContent);#}
+            noteTextarea.val(noteContent);
+        }
+    };
+
+    recognition.onstart = function () {
+        alert('MIC ON: Voice recognition activated. Text input disabled. ');
+    }
+
+    recognition.onspeechend = function () {
+        {#alert('MIC OFF: Voice recognition stopped. Text input enabled.');#}
+    }
+
+    recognition.onerror = function (event) {
+        if (event.error == 'no-speech') {
+            alert('No speech was detected. Try again.')
+            {#instructions.text('No speech was detected. Try again.');#}
+        }
+        ;
+    }
+
+
+    /*-----------------------------
+          App buttons and input
+    ------------------------------*/
+    $('#pause-record-btn').hide();
+    $('#start-record-btn').on('click', function (e) {
+        if (noteContent.length) {
+            noteContent += ' ';
+        }
+        $(this).hide();
+        $('#pause-record-btn').show();
+        document.getElementById("note-textarea").disabled = true;
+        recognition.start();
+    });
+
+
+    $('#pause-record-btn').on('click', function (e) {
+        $(this).hide();
+        $('#start-record-btn').show();
+        document.getElementById("note-textarea").disabled = false;
+        recognition.stop();
+        alert('MIC OFF: Voice recognition stopped. Text input enabled.');
+    });
+
+    // Sync the text inside the text area with the noteContent variable.
+    noteTextarea.on('input', function () {
+        {#noteContent = $(this).val();#}
+    })
+
+    $('#save-note-btn').on('click', function (e) {
+            recognition.stop();
+
+            if (!noteContent.length) {
+                instructions.text('Could not save empty note. Please add a message to your note.');
+            } else {
+                // Save note to localStorage.
+                // The key is the dateTime with seconds, the value is the content of the note.
+                saveNote(new Date().toLocaleString(), noteContent);
+
+                // Reset variables and update UI.
+                noteContent = '';
+                renderNotes(getAllNotes());
+                noteTextarea.val('');
+                instructions.text('Note saved successfully.');
+            }
+
+        }
+    )
+
+
+    notesList.on('click', function (e) {
+        e.preventDefault();
+        var target = $(e.target);
+
+        // Listen to the selected note.
+        if (target.hasClass('listen-note')) {
+            var content = target.closest('.note').find('.content').text();
+            readOutLoud(content);
+        }
+
+        // Delete note.
+        if (target.hasClass('delete-note')) {
+            var dateTime = target.siblings('.date').text();
+            deleteNote(dateTime);
+            target.closest('.note').remove();
+        }
+    });
+
+
+    /*-----------------------------
+          Speech Synthesis
+    ------------------------------*/
+
+    function readOutLoud(message) {
+        var speech = new SpeechSynthesisUtterance();
+
+        // Set the text and voice attributes.
+        speech.text = message;
+        speech.volume = 1;
+        speech.rate = 1;
+        speech.pitch = 1;
+
+        window.speechSynthesis.speak(speech);
+    }
+
+
+    /*-----------------------------
+          Helper Functions
+    ------------------------------*/
+
+    function renderNotes(notes) {
+        var html = '';
+        if (notes.length) {
+            notes.forEach(function (note) {
+                html += `<li class="note">
+        <p class="header">
+          <span class="date">${note.date}</span>
+          <a href="#" class="listen-note" title="Listen to Note">Listen to Note</a>
+          <a href="#" class="delete-note" title="Delete">Delete</a>
+        </p>
+        <p class="content">${note.content}</p>
+      </li>`;
+            });
+        } else {
+            html = '<li><p class="content">You don\'t have any notes yet.</p></li>';
+        }
+        notesList.html(html);
+    }
+
+
+    function saveNote(dateTime, content) {
+        localStorage.setItem('note-' + dateTime, content);
+    }
+
+
+    function getAllNotes() {
+        var notes = [];
+        var key;
+        for (var i = 0; i < localStorage.length; i++) {
+            key = localStorage.key(i);
+
+            if (key.substring(0, 5) == 'note-') {
+                notes.push({
+                    date: key.replace('note-', ''),
+                    content: localStorage.getItem(localStorage.key(i))
+                });
+            }
+        }
+        return notes;
+    }
+
+
+    function deleteNote(dateTime) {
+        localStorage.removeItem('note-' + dateTime);
+    }
+
+    // Get the modal
+    var modal = document.getElementById("myModal");
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("myBtn");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks the button, open the modal
+    btn.onclick = function () {
+        modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+        modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+
+</script>
+<link href="{% static "bootstrap/css/bootstrap.css" %}"
+      rel="stylesheet" id="bootstrap-css">
+<script src="{% static "bootstrap/js/bootstrap.js" %}"></script>
+</html>
